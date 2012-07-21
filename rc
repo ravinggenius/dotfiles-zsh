@@ -3,7 +3,7 @@
 # https://github.com/myfreeweb/zshuery
 
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/dotfiles/zsh/oh-my
+ZSH=$HOME/dotfiles/_/zsh/oh-my
 
 # Set name of the theme to load.
 # Look in ~/dotfiles/oh-my-zsh/themes/
@@ -35,7 +35,7 @@ plugins=(battery bundler git node npm rails3 rbenv ruby)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
-source "$HOME/dotfiles/zsh/aliases"
+source "$HOME/dotfiles/_/zsh/aliases"
 
 # PATH and other environmental variables are set in profile, so load that
-source "$HOME/dotfiles/zsh/profile"
+source "$HOME/dotfiles/_/zsh/profile"
