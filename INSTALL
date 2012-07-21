@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 [[ -e ~/.zshrc ]] && mv ~/.zshrc ~/.zshrc_$(date -u +%Y%m%d%H%M%S)
-ln -s ~/dotfiles/zsh/rc ~/.zshrc
+ln -s ~/dotfiles/_/zsh/rc ~/.zshrc
 [[ -e ~/.zsh-update ]] && mv ~/.zsh-update ~/.zsh-update_$(date -u +%Y%m%d%H%M%S)
-ln -s ~/dotfiles/zsh/update ~/.zsh-update
+ln -s ~/dotfiles/_/zsh/update ~/.zsh-update
 echo 'zsh linked'
