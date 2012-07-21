@@ -1,0 +1,119 @@
+#!/bin/shell
+
+alias a2='sudo /etc/init.d/apache2'
+alias free='free -m'
+alias open='gnome-open'
+
+alias a='ack-grep'
+
+alias v='vim'
+alias vi='vim'
+
+alias rc='redcar --fork .'
+
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+
+alias ls='ls -CFlpXGF --color=auto --group-directories-first --sort=extension'
+alias l='ls'
+alias la='ls -A'
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# hack to properly colorize looksee when it has to page
+alias bundle='LESS="-r" bundle'
+alias irb='LESS="-r" irb'
+alias pry='LESS="-r" pry'
+alias rails='LESS="-r" rails'
+alias rspec='LESS="-r" rspec'
+
+alias r='rails'
+alias rs='rails server thin'
+alias rsp='RAILS_ENV=production rails server thin'
+
+alias b='bundle'
+alias be='bundle exec'
+alias bi='bundle install'
+alias bu='bundle update'
+
+alias cucumber='cucumber --format progress'
+
+alias mr='killall -9 ruby'
+
+alias sp='staticpress'
+
+alias n='node'
+alias ns='node server.js'
+
+alias g='git'
+alias gitk='gitk --all'
+alias gt='git gui & meld . &'
+#complete -o default -o nospace -F _git g
+
+alias apt='apt-get'
+alias install='sudo apt-get install'
+alias update='sudo apt-get update'
+alias upgrade='sudo apt-get upgrade'
+alias remove='sudo apt-get remove'
+alias cleanup='sudo apt-get clean && sudo apt-get autoclean'
+
+# functions
+
+function system_up {
+  sudo apt-get -y update
+  sudo apt-get -y upgrade
+  sudo apt-get -y autoclean
+  sudo apt-get -y autoremove
+}
+
+function gem_up {
+  gem update --system
+  gem update
+  rbenv rehash
+}
+
+function haskell_up {
+  cabal update
+}
+
+function node_up {
+  # curl http://npmjs.org/install.sh | sh
+  npm update -g
+}
+
+function all_up {
+  #system_up && gem_up && haskell_up && node_up
+  system_up && gem_up && node_up
+}
+
+function clean_whitespace {
+  grep -E -R -l '[[:space:]]+$' --include=\*.{rb,haml,sass} . | grep -v vendor | xargs -L 1 sed -i '' -E 's/[[:space:]]+$//'
+}
+
+function find_pid {
+  ps u -p `netstat -nlept | awk '/[:]4000 / {split($9,t,"/"); print t[1]}'` 2>/dev/null
+}
+
+# removes all $1 files from directory recursively
+function purge {
+  find . -name $1 -exec rm -fR {} \;
+}
+
+function s {
+  grep --line-number --recursive $1 .
+}
+
+function s_rails {
+  grep --line-number --recursive $1 app config features lib public spec test
+}
+
+function take {
+  mkdir -p $1
+  cd $1
+}
+
+function wiki {
+  dig +short txt $1.wp.dg.cx
+}
