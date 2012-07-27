@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+cd ~/dotfiles/zsh && git submodule update --init && cd -
 [[ -e ~/.zshrc ]] && mv ~/.zshrc ~/.zshrc_$(date -u +%Y%m%d%H%M%S)
 ln -s ~/dotfiles/zsh/rc ~/.zshrc
 [[ -e ~/.zsh-update ]] && mv ~/.zsh-update ~/.zsh-update_$(date -u +%Y%m%d%H%M%S)
