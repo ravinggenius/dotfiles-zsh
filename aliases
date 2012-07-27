@@ -2,7 +2,6 @@
 
 alias a2='sudo /etc/init.d/apache2'
 alias free='free -m'
-alias open='gnome-open'
 
 alias a='ack-grep'
 
@@ -14,7 +13,7 @@ alias rc='redcar --fork .'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 
-alias ls='ls -CFlpXGF --color=auto --group-directories-first --sort=extension'
+alias ls='ls -CFlpGF'
 alias l='ls'
 alias la='ls -A'
 
@@ -50,20 +49,12 @@ alias gitk='gitk --all'
 alias gt='git gui & meld . &'
 #complete -o default -o nospace -F _git g
 
-alias apt='apt-get'
-alias install='sudo apt-get install'
-alias update='sudo apt-get update'
-alias upgrade='sudo apt-get upgrade'
-alias remove='sudo apt-get remove'
-alias cleanup='sudo apt-get clean && sudo apt-get autoclean'
-
 # functions
 
 function system_up {
-  sudo apt-get -y update
-  sudo apt-get -y upgrade
-  sudo apt-get -y autoclean
-  sudo apt-get -y autoremove
+  brew update
+  brew upgrade
+  brew cleanup
 }
 
 function gem_up {
