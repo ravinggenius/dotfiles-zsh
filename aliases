@@ -88,6 +88,13 @@ function all_up {
   system_up && gem_up && node_up
 }
 
+# http://www.andymatthews.net/read/2012/07/24/Command-line-tools-for-the-novice
+function server() {
+  local port="${1:-8000}"
+  open "http://localhost:${port}/"
+  python -m SimpleHTTPServer "$port"
+}
+
 function clean_whitespace {
   grep -E -R -l '[[:space:]]+$' --include=\*.{rb,haml,sass} . | grep -v vendor | xargs -L 1 sed -i '' -E 's/[[:space:]]+$//'
 }
