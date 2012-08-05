@@ -38,8 +38,6 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
 
-alias cucumber='cucumber --format progress'
-
 alias mr='killall -9 ruby'
 
 alias sp='staticpress'
