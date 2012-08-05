@@ -29,3 +29,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 #export PATH=$HOME/bin/ruby-build/bin:$PATH
+
+# Support for meld
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
