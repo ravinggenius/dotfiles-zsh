@@ -23,6 +23,7 @@ export PATH="$HOME/.cabal/bin:$PATH"
 
 # Support for node
 export PATH="$HOME/bin/node/bin:$PATH"
+export NODE_PATH="/usr/local/lib/node_modules"
 
 # Support for rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
